@@ -1,1 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md.Nahidur Rahman Khan Nishat- Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      
+        :root {
+            --primary-color: #6c63ff;
+            --primary-glow: 0 0 15px rgba(108, 99, 255, 0.5);
+            --secondary-color: #2d3748;
+            --light-color: #f8f9fa;
+            --dark-color: #1a202c;
+            --text-color: #e2e8f0;
+            --card-bg: #2d3748;
+            --section-bg: #1a202c;
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--light-color);
+        }
+        
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title h2 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            box-shadow: var(--primary-glow);
+        }
+        
+      
+        .navbar {
+            background-color: rgba(26, 32, 44, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(108, 99, 255, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--light-color);
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+            margin-left: 20px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+       
+        #home {
+            background: linear-gradient(rgba(26, 32, 44, 0.9), rgba(26, 32, 44, 0.9)), 
+                        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: var(--primary-glow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero-content .title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: var(--primary-glow);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+        }
+        
+        .cta-button:hover:before {
+            left: 100%;
+        }
+        
+        
+        #about {
+            background-color: var(--section-bg);
+        }
+        
+        .about-img {
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+        
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .personal-statement {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+       
+        .skill-item {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            transition: var(--transition);
+            text-align: center;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: var(--transition);
+            border: 1px solid rgba(108, 99, 255, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--primary-glow);
+            border-color: var(--primary-color);
+        }
+        
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .project-body {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--light-color);
+        }
+        
+        .project-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .project-links a:hover {
+            color: var(--light-color);
+            transform: translateY(-3px);
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            background-color: rgba(108, 99, 255, 0.2);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .education-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .education-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            box-shadow: var(--primary-glow);
+        }
+        
+        .education-item:after {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 25px;
+            width: 1px;
+            height: calc(100% - 5px);
+            background-color: var(--primary-color);
+        }
+        
+        .education-item:last-child:after {
+            display: none;
+        }
+        
+        .education-title {
+            font-weight: 600;
+            color: var(--light-color);
+        }
+        
+        .education-date {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+        
+        #contact {
+            background-color: var(--section-bg);
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-info i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 10px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .social-links {
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-bg);
+            color: var(--primary-color);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: var(--primary-glow);
+        }
+        
+        .form-control {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(108, 99, 255, 0.1);
+            color: var(--text-color);
+            padding: 12px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: var(--primary-glow);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+        }
+        
+        footer {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(108, 99, 255, 0.1);
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-img {
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content .title {
+                font-size: 1.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+        }
+        
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px var(--primary-color);
+            }
+            to {
+                box-shadow: 0 0 20px var(--primary-color);
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Nishat</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <section id="home">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <div class="hero-content">
+                        <img src="https://i.postimg.cc/150f4ZVQ/Whats-App-Image-2025-03-24-at-23-36-14-92168224.jpg"  class="profile-img">
+                        <h1>Md.Nahidur Rahman Khan Nishat</h1>
+                        <span class="title">Student | Aspiring Tech Professional</span>
+                        <p>Personal portfolio website</p>
+                        <a href="#projects" class="cta-button">View My Work</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src="https://i.postimg.cc/BbHtxrh2/Whats-App-Image-2025-03-24-at-23-37-47-9b8be6a0.jpg"  class="img-fluid about-img">
+                   
+                </div>
+                <div class="col-lg-7">
+                    <p class="about-text">I am a final-year student pursuing Computing Information Systems with a focus on AI in IoT at Daffodil International University. My studies have allowed me to gain proficiency in various programming languages, including Java, C++, Python, and JavaScript, while exploring AI algorithms and IoT-based applications.
+
+                        Throughout my academic career, I have worked on projects related to software development, machine learning, and automation. These experiences have strengthened my problem-solving skills and my ability to build efficient, scalable systems. As I approach graduation, I am eager to apply my skills in a tech-driven environment and continue growing as a software developer, focusing on AI and IoT innovations.</p>
+                
+                    <div class="personal-statement">
+                        <h4>Personal Statement</h4>
+                        <p class="about-text">"I believe technology should enhance human experiences, not complicate them. My mission is to create solutions that are both powerful and accessible to everyone."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="skill-item">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <h4 class="skill-name">HTML5</h4>
+                        <p>Semantic markup, accessibility, SEO optimization</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt skill-icon"></i>
+                        <h4 class="skill-name">CSS3</h4>
+                        <p>Responsive design, animations, Flexbox/Grid</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="skill-item">
+                        <i class="fab fa-js skill-icon"></i>
+                        <h4 class="skill-name">JavaScript</h4>
+                        <p>ES6+, DOM manipulation, async programming</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="skill-item">
+                        <i class="fab fa-react skill-icon"></i>
+                        <h4 class="skill-name">React</h4>
+                        <p>Hooks, Context API, Redux, Component lifecycle</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="skill-item">
+                        <i class="fab fa-node-js skill-icon"></i>
+                        <h4 class="skill-name">Node.js</h4>
+                        <p>Express, REST APIs, middleware, authentication</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="skill-item">
+                        <i class="fas fa-database skill-icon"></i>
+                        <h4 class="skill-name">SQL & MongoDB</h4>
+                        <p>Database design, queries, ORM/ODM, optimization</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="skill-item">
+                        <i class="fab fa-python skill-icon"></i>
+                        <h4 class="skill-name">Python</h4>
+                        <p>Scripting, data processing, Django/Flask</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="skill-item">
+                        <i class="fas fa-code skill-icon"></i>
+                        <h4 class="skill-name">APIs</h4>
+                        <p>RESTful design, integration, documentation</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="skill-item">
+                        <i class="fas fa-mobile-alt skill-icon"></i>
+                        <h4 class="skill-name">Responsive Design</h4>
+                        <p>Mobile-first approach, cross-browser testing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects" class="bg-dark">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="https://sagartech.co.in/blogs/wp-content/uploads/2024/08/Ecommerce-Website-Design-Feature-Image-scaled.webp" class="project-img" alt="E-commerce Website">
+                        <div class="project-body">
+                            <h5 class="project-title">E-commerce Website</h5>
+                            <p>A fully responsive e-commerce platform with product filtering, user authentication, and payment integration.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">Node.js</span>
+                                <span class="tech-badge">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="https://i.pinimg.com/736x/17/22/bf/1722bfb47a1f67aab0d5311948f6c67c.jpg" class="project-img" alt="Task Management App">
+                        <div class="project-body">
+                            <h5 class="project-title">Task Management App</h5>
+                            <p>A productivity application with drag-and-drop functionality, deadline reminders, and team collaboration features.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">Firebase</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="https://images.klipfolio.com/website/public/bf9c6fbb-06bf-4f1d-88a7-d02b70902bd1/data-dashboard.png" class="project-img" alt="Data Visualization Dashboard">
+                        <div class="project-body">
+                            <h5 class="project-title">Data Visualization Dashboard</h5>
+                            <p>An interactive dashboard displaying complex data sets with customizable charts and exportable reports.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">D3.js</span>
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">Python</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="education-item">
+                        <h4 class="education-title">BSc in Computer Information System</h4>
+                        <p class="education-date">Daffodil International University | 2024 - 2028</p>
+                        <p>Specialized in ML Engineering with a focus on AI technologies and cloud computing. Completed a thesis on optimizing database performance in distributed systems.</p>
+                        <p><strong>Key Courses:</strong> Advanced Algorithms, Cloud Architecture, Software Design Patterns,OPP,Artificial Intelligence (AI)</p>
+                    </div>
+                    <div class="education-item">
+                        <h4 class="education-title">Higher Secondary Certificate</h4>
+                        <p class="education-date">Khilgaon Govt. colony school and college | 2021 - 2023</p>
+                        <p>Foundational education in math, ICT, and physics</p>
+                        <p><strong>Activities:</strong> ICT lab,programming club,ENGLISH CLUB</p>
+                    </div>
+                    <div class="education-item">
+                        <h4 class="education-title">Professional Certifications</h4>
+                        <p class="education-date">Various Institutions</p>
+                        <ul>
+                            <li>Data Science and Analysis(2028)</li>
+                            <li>Artificial Intelligence (AI)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        <p><i class="fas fa-envelope"></i>nishat242-16-061@diu.edu.bd</p>
+                        <p><i class="fas fa-map-marker-alt"></i>Khilgaon,Dhaka</p>
+                    </div>
+                    <div class="social-links">
+                        <h4>Follow Me</h4>
+                        <div class="mt-3">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="card bg-dark border-primary">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Send Me a Message</h4>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" placeholder="Your Email" required>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Subject">
+                                <textarea class="form-control" placeholder="Your Message" rows="5" required></textarea>
+                                <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Md.Nahidur Rahman Khan Nishat. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
